@@ -15,6 +15,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
+
 public class MovieArrayAdapter extends ArrayAdapter<Movie> {
 
     private static class ViewHolder {
@@ -70,6 +72,7 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             .with(getContext())
             .load(this.imageForOrientation(movie))
             .fit().centerCrop().noFade()
+            .transform(new RoundedCornersTransformation(10, 10))
             .placeholder(R.drawable.placeholder)
             .into(viewHolder.posterImage);
         return convertView;
